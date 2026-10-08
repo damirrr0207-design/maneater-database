@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maneater Database</title>
+<style>
+:root{--bg:#06131a;--card:#0b2632;--cyan:#23d9ff;--blue:#388fff;--text:#edfaff;--muted:#9db9c3;--line:rgba(120,220,240,.14);--gold:#ffc857}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 15% 0%,rgba(35,217,255,.12),transparent 28%),linear-gradient(180deg,var(--bg),#02080c 75%)}
+header{position:sticky;top:0;z-index:10;background:rgba(3,14,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{font-weight:900;letter-spacing:2px}.logo span{color:var(--cyan)}
+nav{display:flex;gap:16px;flex-wrap:wrap}nav a{font-size:14px;color:#cce8ee}nav a:hover{color:var(--cyan)}
+.hero{min-height:470px;background:linear-gradient(90deg,rgba(0,10,14,.93),rgba(0,10,14,.45),rgba(0,10,14,.18)),url('https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-inner{max-width:1180px;margin:auto;padding:85px 20px}.badge,.tag{display:inline-block;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.7px;padding:6px 9px}.badge{border:1px solid rgba(35,217,255,.28);color:var(--cyan);background:rgba(35,217,255,.08)}.tag{background:rgba(255,200,87,.1);color:var(--gold)}
+h1{font-size:62px;line-height:.95;margin:18px 0 14px}.hero p{max-width:650px;font-size:18px;line-height:1.6;color:#d2e8ee}
+.btn{display:inline-block;margin-top:16px;padding:11px 16px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#001016;font-weight:900}
+section{max-width:1180px;margin:auto;padding:62px 20px}.title{font-size:32px;margin:0 0 8px}.sub{color:var(--muted);line-height:1.6;margin:0 0 25px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:linear-gradient(180deg,rgba(13,48,61,.92),rgba(7,27,35,.96));border:1px solid var(--line);border-radius:16px;padding:20px}.card h3{margin:10px 0 8px}.card p{color:#b5cbd2;line-height:1.55}
+.downloads{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.download-card{background:linear-gradient(180deg,rgba(13,48,61,.95),rgba(6,24,31,.98));border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:190px 1fr}.download-card img{width:100%;height:100%;min-height:230px;object-fit:cover}.download-info{padding:20px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.meta span{font-size:11px;padding:6px 8px;border-radius:999px;background:#081d26;color:#b7d6de;border:1px solid var(--line)}
+.status{font-size:12px;color:#83a7b1;margin-top:12px}.empty{padding:18px;border:1px dashed rgba(120,220,240,.22);border-radius:12px;color:#98b4bd}
+footer{padding:28px 20px;text-align:center;border-top:1px solid var(--line);color:#78949d}
+@media(max-width:850px){.grid,.downloads{grid-template-columns:1fr 1fr}.download-card{grid-template-columns:1fr}.download-card img{height:220px}}
+@media(max-width:580px){.grid,.downloads{grid-template-columns:1fr}h1{font-size:43px}.nav{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">MANEATER <span>DATABASE</span></div>
+    <nav><a href="#about">Игра</a><a href="#files">Файлы</a><a href="#future">Разделы</a></nav>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">PUBLIC MANEATER DATABASE</div>
+    <h1>Maneater</h1>
+    <p>Фанатская база Maneater: моды, текстуры, паки, карты, акулы и другие материалы.</p>
+    <a class="btn" href="#files">Открыть файлы</a>
+  </div>
+</section>
+<section id="about">
+  <h2 class="title">Maneater Database</h2>
+  <p class="sub">Публичная версия базы. Файлы и материалы постепенно добавляются сюда.</p>
+  <div class="grid">
+    <div class="card"><div class="tag">01</div><h3>Файлы</h3><p>ZIP-паки, моды и другие материалы.</p></div>
+    <div class="card"><div class="tag">02</div><h3>Изображения</h3><p>Обложки и картинки для материалов.</p></div>
+    <div class="card"><div class="tag">03</div><h3>База игры</h3><p>Акулы, эволюции, карта, боссы и коллекционные предметы.</p></div>
+  </div>
+</section>
+<section id="files">
+  <h2 class="title">Файлы для скачивания</h2>
+  <p class="sub">Сейчас каталог уже подготовлен. Первый архив можно будет добавить сюда отдельным файлом после загрузки бинарного ZIP в репозиторий.</p>
+  <div id="downloadList" class="downloads"></div>
+</section>
+<section id="future">
+  <h2 class="title">Что добавим дальше</h2>
+  <div class="grid">
+    <div class="card"><h3>🦈 Акулы</h3><p>Все стадии роста, характеристики и страницы акул.</p></div>
+    <div class="card"><h3>🗺️ Карта</h3><p>Регионы, коллекционные предметы, тайники и точки интереса.</p></div>
+    <div class="card"><h3>🧬 Эволюции</h3><p>Полная база эволюций с бонусами и сборками.</p></div>
+  </div>
+</section>
+</main>
+<footer>Maneater Database • публичная версия</footer>
+<script>
+async function loadFiles(){
+  const box=document.getElementById('downloadList');
+  try{
+    const r=await fetch('files.json',{cache:'no-store'});
+    const data=await r.json();
+    if(!data.length){box.innerHTML='<div class="empty">Файлы пока не добавлены.</div>';return;}
+    box.innerHTML=data.map(f=>{
+      const cover=f.cover?'<img src="'+f.cover+'" alt="'+esc(f.name)+'">':'';
+      const meta='<div class="meta"><span>'+esc(f.ext.toUpperCase())+'</span><span>'+esc(f.size)+'</span>'+(f.file_count?'<span>'+f.file_count+' файлов в архиве</span>':'')+'</div>';
+      const download=f.url?'<a class="btn" href="'+f.url+'" download>⬇ Скачать</a>':'<span class="status">Файл будет добавлен</span>';
+      return '<article class="download-card">'+cover+'<div class="download-info"><span class="tag">DOWNLOAD</span><h3>'+esc(f.name)+'</h3><p>'+esc(f.description||'Файл из базы Maneater.')+'</p>'+meta+download+'</div></article>';
+    }).join('');
+  }catch(e){box.innerHTML='<div class="empty">Не удалось загрузить каталог файлов.</div>';}
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+loadFiles();
+</script>
+</body>
+</html>
